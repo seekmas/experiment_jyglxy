@@ -1,0 +1,14 @@
+<div class="single-post-title">
+    <h3>
+        {{ post.title }}
+    </h3>
+</div>
+<div class="single-post-info">
+    <i class="glyphicon glyphicon-time"></i> {{ post.updatedAt | date('Y/m/d') }}  <a href="#" title="Show Comments"><i class="glyphicon glyphicon-comment"></i>11</a>
+</div>
+<div class="single-post-image">
+    <img src="{{ asset( post.image ) }}" alt="Post Title">
+</div>
+<div class="single-post-content">
+    {{ post.content | raw }}
+</div>

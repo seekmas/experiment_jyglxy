@@ -1,0 +1,79 @@
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <!-- Product Image & Available Colors -->
+            <div class="col-sm-6">
+                <div class="product-image-large">
+                    <img src="{{ asset( course.image ) }}" alt="Item Name">
+                </div>
+            </div>
+            <!-- End Product Image & Available Colors -->
+            <!-- Product Summary & Options -->
+            <div class="col-sm-6 product-details">
+                <h4>{{ course.title }}</h4>
+                <div class="price">{{ course.category }}</div>
+                <table class="shop-item-selections">
+                    <!-- Add to Cart Button -->
+                    <tbody><tr>
+                        <td>&nbsp;</td>
+                        <td>
+                            <a href="#" class="btn btn"><i class="icon-shopping-cart icon-white"></i>立即观看</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- End Product Summary & Options -->
+
+            <!-- Full Description & Specification -->
+            <div class="col-sm-12">
+                <div class="tabbable">
+                    <!-- Tabs -->
+                    <ul class="nav nav-tabs product-details-nav">
+                        <li class="active"><a href="#tab1" data-toggle="tab">课程描述</a></li>
+                        <li class=""><a href="#tab2" data-toggle="tab">相关信息</a></li>
+                    </ul>
+                    <!-- Tab Content (Full Description) -->
+                    <div class="tab-content product-detail-info">
+                        <div class="tab-pane active" id="tab1">
+
+                            {{ course.content | raw }}
+
+                        </div>
+                        <!-- Tab Content (Specification) -->
+                        <div class="tab-pane" id="tab2">
+                            <table>
+                                <tbody>
+                                {% for page in course.play if page.isEnabled %}
+                                <tr>
+                                    <td>
+                                        <h4>
+                                            <img src="{{ asset( page.image | imagine_filter('normal') ) }}" style="width: 100px;margin-right: 10px;" />
+                                            {{ page.title }}
+
+                                            <br/><small>{{ page.content | striptags }}</small>
+
+                                        </h4>
+
+                                        {% if page.mp4File %}
+
+                                            <a class="pull-right" href="{{ url('play_course_by_id' , {'id':page.id} ) }}">点击学习课程</a>
+
+                                        {% endif %}
+
+                                    </td>
+
+                                </tr>
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Full Description & Specification -->
+        </div>
+    </div>
+</div>

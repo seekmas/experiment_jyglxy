@@ -1,0 +1,78 @@
+
+<div class="col-md-12">
+    <div class="panel">
+        <div class="panel-body" style="padding: 0px">
+
+            <img src="{{ asset( group.image) | imagine_filter('banner') }}" style="width: 100%;height: 200px"/>
+            {{ render_esi( controller('CommunityElementBundle:Mega:user' , { 'menu_title' : group.title , 'route' : 'visit_group_by_id' , 'id' : group.id } )) }}
+        </div>
+    </div>
+
+</div>
+
+<div class="col-md-2">
+
+</div>
+
+<div class="col-md-8">
+
+    <div class="panel">
+        <div class="panel-body">
+            {{ form(form ) }}
+        </div>
+    </div>
+
+
+    {{ knp_pagination_render(threads) }}
+
+    <h4>最近讨论</h4>
+
+    {% for thread in threads %}
+    <div class="panel">
+        <div class="panel-heading">
+
+        </div>
+
+        {% if thread.image %}
+            <p class="text-center">
+                <img class="img-rounded" src="{{ asset( thread.image | imagine_filter('800x100')) }}">
+            </p>
+        {% endif %}
+
+        {% if thread.isRoleUser == true and is_granted('ROLE_USER') %}
+        <div class="panel-body">
+            <div class="readmore">{{ thread.content | raw }}</div>
+        </div>
+        {% elseif thread.isRoleUser == false %}
+
+            <div class="panel-body">
+                <div class="readmore">{{ thread.content | raw }}</div>
+            </div>
+
+        {% else %}
+        <div class="panel-body">
+            <div class="alert alert-error">对不起.你是游客,要看到完整内容,需要先 <a href="{{ url('fos_user_security_login') }}">登录</a> 或者 <a href="{{ url('fos_user_registration_register') }}">注册</a> </div>
+        </div>
+        {% endif %}
+
+        <div class="panel-footer">
+            <a class="avatar" href="{{ url('community_member_home' , {'id':thread.user.id}) }}">
+                <img src="{{ thread.user.member.image | imagine_filter('avatar') }}" />
+                <span>{{ thread.user.member.nickname }}</span>
+            </a>
+            <div class="pull-right">
+            <a href=""><i class="fa fa-thumbs-o-up"></i> 支持 </a>
+            <a href="{{ url('join_thread_by_id' , {'id':thread.id} ) }}">参与讨论</a>
+            </div>
+        </div>
+
+    </div>
+    {% endfor %}
+
+
+</div>
+
+
+<div class="col-md-2">
+
+</div>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{% block title %}精益管理学院{% endblock %}</title>
+    <meta name="keywords" content="{% block keywords %}{% endblock %}">
+    <meta name="description" content="{% block description %}{% endblock %}">
+    <meta name="viewport" content="width=device-width">
+
+
+
+    {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('theme/css/icomoon-social.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('theme/css/leaflet.css') }}" />
+    <link rel="stylesheet" href="{{ asset('theme/css/new.css') }}" />
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="{{ asset('theme/css/leaflet.ie.css') }}" />
+    <![endif]-->
+    <link rel="stylesheet" href="{{ asset('theme/css/main.css') }}">
+    {% endblock %}
+
+
+    <script src="{{ asset('theme/js/modernizr-2.6.2-respond-1.1.0.min.js') }}"></script>
+</head>
+<body>
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+
+
+<!-- Navigation & Logo-->
+<div class="mainmenu-wrapper">
+    <div class="container">
+        <div class="menuextras">
+            <div class="extras">
+                <ul>
+
+                    {% if is_granted('ROLE_USER') %}
+
+                        {{ app.user.username }}在线
+
+                        {% if is_granted('ROLE_SUPER_USER') %}
+
+                        <a href="{{ url('admin_home') }}">管理</a>
+
+                        {% endif %}
+
+                    {% else %}
+                    <li><a href="{{ url('fos_user_registration_register') }}">注册</a></li>
+                    <li><a href="{{ url('fos_user_security_login') }}">登录</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <nav id="mainmenu" class="mainmenu">
+            <ul style="padding-bottom: 20px">
+                <li class="logo-wrapper"><a href="index.html"><img src="{{ asset('theme/img/logo.png') }}" alt="Multipurpose Twitter Bootstrap Template"></a></li>
+                <li class="hidden-sm hidden-xs">
+                    <a href="{{ url('frontend_content_homepage') }}">首页</a>
+                </li>
+                <li class="hidden-sm hidden-xs has-submenu">
+                    <a href="{{ url('display_all_courses_category') }}">全系统精益管理</a>
+                    <div class="mainmenu-submenu">
+                        <div class="mainmenu-submenu-inner">
+                            <div>
+                                <h4><a href="{{ url('display_all_courses_category') }}">全系统精益运营管理体系</a></h4>
+                                <ul>
+                                    {% for category in global.get_global_variables %}
+
+                                        <li><a href="{{ url('display_courses_by_category' , {'category_id':category.id}) }}">{{ category.title }}</a></li>
+
+                                    {% endfor %}
+
+
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>精益信息系统</h4>
+                                <ul>
+                                    <li><a href="#">中科MES生产制造系统</a></li>
+                                    <li><a href="#">精益云CRM客户关系管理系统</a></li>
+                                    <li><a href="#">ERP系统</a></li>
+                                </ul>
+                                <h4>精益云学院</h4>
+                                <ul>
+                                    <li><a href="#">精益专题课程</a></li>
+                                    <li><a href="#">精益公开课</a></li>
+                                    <li><a href="#">精益社群</a></li>
+                                </ul>
+                                <h4>精益工具</h4>
+                                <ul>
+                                    <li><a href="#">5S管理工具（即将上线）</a></li>
+                                    <li><a href="#">7种浪费审计工具（即将上线）</a></li>
+                                    <li><a href="#">A3报告工具（即将上线）</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>关注我们</h4>
+                                <ul>
+                                    <li><img src="{{ asset('theme/img/two-ma.jpg') }}" width="150"></li>
+                                </ul>
+                                <h4>精益图书</h4>
+                                <ul>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </div><!-- /mainmenu-submenu-inner -->
+                    </div><!-- /mainmenu-submenu -->
+                </li>
+                <li class="hidden-sm hidden-xs">
+                    <a href="{{ url('frontend_content_audio') }}">精益电台</a>
+                </li>
+
+                <li class="hidden-sm hidden-xs">
+                    <a href="{{ url('community_group_homepage') }}">精益社区</a>
+                </li>
+
+                <li class="hidden-sm hidden-xs">
+                    <a href="{{ url('frontend_content_homepage') }}">案例</a>
+                </li>
+                <li class="hidden-sm hidden-xs">
+                    <a href="{{ url('frontend_content_homepage') }}">联系我们</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+
+{% block body %}
+
+{% endblock %}
+
+
+<!-- Footer -->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-footer col-md-3 col-xs-6">
+                <h3>我们的资讯</h3>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <a href="#"><img src="{{ asset('theme/img/about-us.png') }}" alt="Project Name"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-footer col-md-3 col-xs-6">
+                <h3>网站导航</h3>
+                <ul class="no-list-style footer-navigate-section">
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">全系统精益管理</a></li>
+                    <li><a href="#">学院视频</a></li>
+                    <li><a href="#">行业案例</a></li>
+                    <li><a href="#">资讯</a></li>
+                    <li><a href="#">学院介绍</a></li>
+                    <li><a href="#">关于我们</a></li>
+                </ul>
+            </div>
+
+            <div class="col-footer col-md-4 col-xs-6">
+                <h3>联系我们</h3>
+                <p class="contact-us-details">
+                    中国上海<br />
+                    中国澳门<br />
+                    日本东京<br />
+                    欧洲英国<br />
+                    <b>联系电话:</b>021-5068579<br />
+                    <b>Email:</b> <a href="mailto:kefu@jingyiguanli.com">kefu@jingyiguanli.com</a>
+                </p>
+            </div>
+            <div class="col-footer col-md-2 col-xs-6">
+                <h3>关注我们</h3>
+                <ul class=" no-list-style">
+                    <li><a href="#">新浪微博</a></li>
+                    <li><a href="#">微信</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="footer-copyright">版权所有&copy;2011-2014 精益管理学院 沪ICP备14001574 </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% block javascripts %}
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=36358949" charset="UTF-8"></script>
+
+
+    <script src="{{ asset('theme/js/jquery.min.js') }}"></script>
+
+<script src="{{ asset('theme/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('theme/js/leaflet.js') }}"></script>
+<script src="{{ asset('theme/js/jquery.fitvids.js') }}"></script>
+<script src="{{ asset('theme/js/jquery.sequence-min.js') }}"></script>
+<script src="{{ asset('theme/js/jquery.bxslider.js') }}"></script>
+<script src="{{ asset('theme/js/main-menu.js') }}"></script>
+<script src="{{ asset('theme/js/template.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $('.po-markup > .po-link').popover({
+                trigger: 'hover',
+                html: true,  // must have if HTML is contained in popover
+
+                // get the title and conent
+                title: function() {
+                    return $(this).parent().find('.po-title').html();
+                },
+                content: function() {
+                    return $(this).parent().find('.po-body').html();
+                },
+
+                container: 'body',
+                placement: 'top'
+
+            });
+
+        });
+    </script>
+{% endblock %}
+
+</body>
+</html>

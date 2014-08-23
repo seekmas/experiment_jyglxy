@@ -1,0 +1,104 @@
+{% extends "FrontendContentBundle::layouts.html.twig" %}
+{% block body %}
+
+{% set list = '
+<tr>
+    <td><h3>2014年</h3></td>
+</tr>
+<tr>
+    <td>
+        <div class="event-date">
+            <div class="event-day">16</div>
+            <div class="event-month">五月</div>
+        </div>
+    </td>
+    <td>
+        介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍
+    </td>
+    <td class="event-venue hidden-xs"><i class="icon-map-marker"></i>精益电台</td>
+    <td>
+        <div class="po-markup">
+            <a class="po-link btn btn-skin">扫一扫</a>
+            <div class="po-content hidden">
+                <div class="po-title">
+                    扫一扫
+                </div> <!-- ./po-title -->
+
+                <div class="po-body">
+                    <p>
+                        <img src="img/two-ma.jpg" width="150">
+                    </p>
+
+                </div><!-- ./po-body -->
+            </div>  <!-- ./po-content -->
+        </div><!-- ./po-markup -->
+    </td>
+    <td><a href="#" class="btn btn-grey btn-sm event-more">进入频道</a></td>
+</tr>
+' %}
+<!-- Homepage Slider -->
+<div class="homepage-slider">
+    <div id="sequence">
+        <ul class="sequence-canvas">
+            <!-- Slide 1 -->
+            <li class="bg5">
+                <!-- Slide Title -->
+                <h2 class="title">全新定义精益电台</h2>
+                <!-- Slide Text -->
+                <h3 class="subtitle">
+                    你可以，随时随地的听精益电台<br>
+                    也可以，随时与我们互动，发现更多精彩内容<br>
+
+                    <div class="po-markup">
+                        也可以，点击我>><a class="po-link" style="color: #e38d13;">关注微信</a><<
+                        <div class="po-content hidden">
+                            <div class="po-title">
+                                关注我们
+                            </div> <!-- ./po-title -->
+
+                            <div class="po-body">
+                                <p>
+                                    <img src="{{ asset('theme/img/two-ma.jpg') }}" width="150">
+                                </p>
+
+                            </div><!-- ./po-body -->
+                        </div>  <!-- ./po-content -->
+                    </div><!-- ./po-markup -->
+                </h3>
+
+                <!-- Slide Image -->
+                <img class="slide-img" src="{{ asset('theme/img/homepage-slider/phone.png') }}" alt="Slide 1" />
+            </li>
+            <!-- End Slide 1 -->
+        </ul>
+
+    </div>
+</div>
+<!-- End Homepage Slider -->
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="events-list">
+
+
+
+
+                    {{ list | raw }}
+                    {{ list | raw }}
+                    {{ list | raw }}
+                    {{ list | raw }}
+                    {{ list | raw }}
+                    {{ list | raw }}
+
+
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,40 @@
+
+<div id="effect-1">
+{% for thread in threads %}
+
+    <div class="col-md-3">
+        <div class="panel">
+            <a href="{{ url('join_thread_by_id' , {'id' : thread.id} ) }}">
+            <figure>
+                {% if thread.image %}
+
+                    <img class="cover caption" name="#{{ thread.id }}" src="{{ thread.image | imagine_filter('300x200') }}" alt="">
+
+                {% endif %}
+                <figcaption>
+                    <span>{{ thread.content | striptags | truncate(40) }}</span>
+                </figcaption>
+            </figure>
+            </a>
+
+            <div class="panel-footer"><div class="row">
+
+                <div class="col-md-8">
+                    <a class="avatar" href="{{ url('community_member_home' , {'id':thread.user.id}) }}">
+                    <img src="{{ thread.user.member.image | imagine_filter('avatar') }}" />
+                    <span>{{ thread.user.member.nickname }}</span>
+                    </a>
+                </div>
+                <div class="col-md-4"><a href="{{ url('join_thread_by_id' , {'id' : thread.id}) }}">参与讨论</a></div>
+            </div></div>
+        </div>
+    </div>
+
+{% endfor %}
+</div>
+
+<div class="col-md-12">
+    <div class="navigation">
+        {{ knp_pagination_render(threads) }}
+    </div>
+</div>

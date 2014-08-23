@@ -1,0 +1,28 @@
+{% extends "FrontendContentBundle::layouts.html.twig" %}
+
+
+{% block stylesheets %}
+
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('ab/css/base.css') }}" />
+
+{% endblock %}
+
+{% block body %}
+    <div class="section section-breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>播放课程</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+    <div class="row">
+    {% include "FrontendContentBundle:Course:play/index_content.html.twig" %}
+    </div>
+    </div>
+{% endblock %}

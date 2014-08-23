@@ -1,0 +1,47 @@
+{% extends "FrontendContentBundle::layouts.html.twig" %}
+
+
+{% block body %}
+    <div class="container" style="padding-top: 40px;">
+        <div class="row">
+
+
+            <div class="col-md-4"></div>
+
+            <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                    <a href="{{ path('fos_user_security_logout') }}">
+                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                    </a>
+                {% else %}
+                    <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                {% endif %}
+
+
+                {% for type, messages in app.session.flashbag.all() %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ type }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                </div>
+
+                <div class="panel-body" style="padding: 40px">
+
+                    {% block fos_user_content %}
+                    {% endblock fos_user_content %}
+                </div>
+            </div>
+            </div>
+
+            <div class="col-md-4"></div>
+
+        </div>
+    </div>
+
+
+{% endblock %}

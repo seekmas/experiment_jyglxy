@@ -1,0 +1,19 @@
+community_group_homepage:
+    path:     /
+    defaults: { _controller: CommunityGroupBundle:Default:index }
+
+visit_group_by_id:
+    path: /{id}/visit
+    defaults: { _controller: CommunityGroupBundle:Group:index }
+
+join_thread_by_id:
+    path: /{id}/thread
+    defaults: { _controller: CommunityGroupBundle:Group:thread }
+
+community_member:
+    path: /member
+    defaults: { _controller: CommunityGroupBundle:Default:member }
+
+community_member_home:
+    path: /{id}/home
+    defaults: { _controller: CommunityGroupBundle:Home:index }

@@ -1,0 +1,57 @@
+
+{% extends "CommunityGroupBundle::layouts.html.twig" %}
+
+
+{% block content %}
+
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body">
+                    {{ render_esi( controller('CommunityElementBundle:Mega:user' , { 'menu_title' : '社区' , 'route' : 'community_group_homepage'} )) }}
+                </div>
+            </div>
+        </div>
+
+
+    {% include 'CommunityGroupBundle:Default:index_content.html.twig' %}
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block stylesheets %}
+
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('community/image-caption/css/style.css') }}">
+
+{% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    <script>
+        var ias = $.ias({
+            container:  "#effect-1",
+            item:       ".col-md-3",
+            pagination: "#pagination",
+            next:       "li.active + li a"
+        });
+
+        ias.extension(new IASSpinnerExtension({
+            src: '{{ asset("community/jquery-ias.min.js/loading.gif") }}'
+        }));            // shows a spinner (a.k.a. loader)
+        ias.extension(new IASTriggerExtension({offset: 100})); // shows a trigger after page 3
+        ias.extension(new IASNoneLeftExtension({
+            html: '<div class="col-md-12" align="center"><p class="lead">所有内容已经加载完.</p></div>'      // override text when no pages left
+        }));
+    </script>
+
+{% endblock %}

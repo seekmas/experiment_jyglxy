@@ -1,0 +1,3 @@
+community_element_homepage:
+    path:     /mega
+    defaults: { _controller: CommunityElementBundle:Mega:index }

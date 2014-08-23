@@ -1,0 +1,45 @@
+<div class="section blog-posts-wrapper">
+    <div class="container">
+        <div class="row">
+
+            {% for post in posts  %}
+
+            <!-- Post -->
+            <div class="col-md-4 col-sm-6">
+                <div class="blog-post">
+                    <!-- Post Info -->
+                    <div class="post-info">
+                        <div class="post-date">
+                            <div class="date">{{ post.updatedAt | date('Y年m月d日') }}</div>
+                        </div>
+                        <div class="post-comments-count">
+                            <a href="page-blog-post-right-sidebar.html" title="Show Comments"><i class="glyphicon glyphicon-comment icon-white"></i>11</a>
+                        </div>
+                    </div>
+                    <!-- End Post Info -->
+                    <!-- Post Image -->
+                    <p class="text-center">
+                    <a href="{{ url('display_post_by_id' , {'post_id' : post.id } ) }}"><img src="{{ asset( post.image ) }}" class="post-image" style="height:200px;" alt="Post Title"></a>
+                    </p>
+                    <!-- End Post Image -->
+                    <!-- Post Title & Summary -->
+                    <div class="post-title">
+                        <h3><a href="page-blog-post-right-sidebar.html">{{ post.title }}</a></h3>
+                    </div>
+                    <div class="post-summary">
+                        <p>{{ post.content | striptags [:100]}}</p>
+                    </div>
+                    <!-- End Post Title & Summary -->
+                    <div class="post-more">
+                        <a href="{{ url('display_post_by_id' , {'post_id' : post.id } ) }}" class="btn btn-small">Read more</a>
+                    </div>
+                </div>
+            </div>
+            <!-- End Post -->
+
+            {% endfor %}
+
+
+        </div>
+    </div>
+</div>

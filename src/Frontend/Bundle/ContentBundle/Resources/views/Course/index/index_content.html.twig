@@ -1,0 +1,25 @@
+<div class="section">
+    <div class="container">
+
+        {% for course in courses %}
+            <a href="{{ url('display_course_by_id' , { 'course_id' : course.id } ) }}">
+                <div class="row service-wrapper-row">
+                    <div class="col-sm-4">
+                        <div class="service-image">
+                            <div class="portfolio-item">
+                                <div class="portfolio-image">
+                                    <img src="{{ asset( course.image | imagine_filter('600x200') ) }}" alt="Color Schemes">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <h3>{{ course.title }}</h3>
+                        <h3><small>{{ course.content | striptags | truncate(100) }}</small></h3>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+
+    </div>
+</div>

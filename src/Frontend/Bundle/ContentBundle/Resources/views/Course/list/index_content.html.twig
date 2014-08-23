@@ -1,0 +1,18 @@
+<div class="section">
+    <div class="container">
+        <div class="row">
+
+            {% for c in categories %}
+                <div class="col-md-3 col-sm-6">
+                    <div class="service-wrapper">
+                        <img src="{{ asset( c.image | imagine_filter('normal') ) }}" style="height: 150px;width: 100%;" alt="{{ c.title }}">
+
+                        <h3>{{ c.title | raw | truncate(10) }}</h3>
+                        <a href="{{ url( 'display_courses_by_category' , {'category_id' : c.id }) }}" class="btn">所有课程</a>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>

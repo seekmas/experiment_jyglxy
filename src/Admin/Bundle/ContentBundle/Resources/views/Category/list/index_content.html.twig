@@ -1,0 +1,37 @@
+
+
+<div class="row-fluid">
+
+    <div class="span12">
+        <div class="box">
+            <div class="box-header">
+                <span class="title">最近添加的所有新闻</span>
+                <ul class="box-toolbar">
+                    <li><span class="label label-blue">{{ categories | length }}</span></li>
+                </ul>
+            </div>
+            <div class="box-content scrollable">
+
+                {% for category in categories %}
+                    <div class="box-section news with-icons">
+
+                        {% if category.enabled %}
+                            <div class="avatar green"><i class="icon-ok icon-2x"></i></div>
+                        {% else %}
+                            <div class="avatar blue"><i class="icon-remove icon-2x"></i></div>
+                        {% endif %}
+
+                        <div class="news-content">
+                            <div class="news-title"><a href="{{ url('admin_category_edit' , {'id':category.id} ) }}">{{ category.title }}</a></div>
+                            <div class="news-text">
+                                {{ category.description[:200] }}
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</div>

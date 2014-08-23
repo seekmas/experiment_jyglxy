@@ -1,0 +1,59 @@
+<ul class="nav navbar-nav">
+    <li>
+        <a {% if route and id %}
+                href="{{ url( route , {'id':id} ) }}
+           {% elseif route %}
+                href="{{ url( route ) }}
+           {% endif %}">
+            <span class="glyphicon glyphicon-comment"></span> {{ menu_title }}
+        </a>
+    </li>
+    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span
+                    class="glyphicon glyphicon-envelope"></span> 与我相关 <span class="label label-info">{{ messages | length }}</span>
+        </a>
+        <div class="dropdown-menu">
+        <div class="list-group">
+
+            {% if messages %}
+
+                {% for message in messages %}
+                    <a href="#" class="list-group-item">
+                        <p class="list-group-item-text" style="width: 400px">
+                            {% set content = message.reply.content | striptags | truncate(20) %}
+
+                            {{ message.message | simple_replace(
+                            {'toUser'   : message.toUser.member.nickname ,
+                            'fromUser' : message.fromUser.member.nickname ,
+                            'content'  : content
+                            }
+                            )
+                            }}
+                        </p>
+                        <span class="label label-success">{{ message.createdAt | date('Y/m/d H:i:s') }}</span>
+                    </a>
+                {% endfor %}
+
+            {% else %}
+
+                <a href="#" class="list-group-item"><p class="list-group-item-text">还没有任何消息</p></a>
+
+            {% endif %}
+
+
+            <a href="#" class="list-group-item"><p class="list-group-item-text">浏览所有通知消息</p></a>
+        </div>
+        </div>
+    </li>
+    {% if is_granted('ROLE_USER') %}
+    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span
+                    class="glyphicon glyphicon-user"></span> 个人信息 <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+
+            <li><a href="{{ url('community_member_home' , {'id' : app.user.id} ) }}">我的主页</a></li>
+
+            <li><a href="{{ url('community_member') }}">更新资料</a></li>
+
+        </ul>
+    </li>
+    {% endif %}
+</ul>

@@ -1,0 +1,39 @@
+<div class="row-fluid">
+
+    <div class="span12">
+        <div class="box">
+            <div class="box-header">
+                <span class="title">最近添加的所有新闻</span>
+                <ul class="box-toolbar">
+                    <li><span class="label label-blue">{{ posts | length }}</span></li>
+                </ul>
+            </div>
+            <div class="box-content scrollable">
+
+            {% for post in posts %}
+                <div class="box-section news with-icons">
+
+                    {% if post.enabled %}
+                    <div class="avatar green"><i class="icon-ok icon-2x"></i></div>
+                    {% else %}
+                    <div class="avatar blue"><i class="icon-remove icon-2x"></i></div>
+                    {% endif %}
+
+
+                    <div class="news-time">
+                        <span>{{ post.updatedAt | date('m') }}</span>{{ post.updatedAt | date('d') }}
+                    </div>
+                    <div class="news-content">
+                        <div class="news-title"><a href="{{ url('admin_post_edit' , {'id' : post.id} ) }}">{{ post.title }}</a></div>
+                        <div class="news-text">
+                            {{ post.content[:200] }}
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</div>

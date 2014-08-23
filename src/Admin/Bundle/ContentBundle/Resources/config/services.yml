@@ -1,0 +1,54 @@
+parameters:
+
+services:
+    file.save_file_handler:
+        class: Admin\Bundle\ContentBundle\File\SaveFileHandler
+        arguments: [@service_container]
+
+    user.repository:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Admin\Bundle\ContentBundle\Entity\User ]
+
+    message.repository:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Admin\Bundle\ContentBundle\Entity\Message ]
+
+    post.repository:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Admin\Bundle\ContentBundle\Entity\Post ]
+
+    category.repository:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Admin\Bundle\ContentBundle\Entity\Category ]
+
+    course.repository:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Admin\Bundle\ContentBundle\Entity\Course ]
+
+    play.repository:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Admin\Bundle\ContentBundle\Entity\Play ]
+
+    courseCategory.repository:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Admin\Bundle\ContentBundle\Entity\CourseCategory ]
+
+    comment.repository:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Admin\Bundle\ContentBundle\Entity\Comment ]

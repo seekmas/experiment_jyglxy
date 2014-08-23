@@ -1,0 +1,43 @@
+frontend_content_homepage:
+    path:     /
+    defaults: { _controller: FrontendContentBundle:Default:index }
+
+frontend_content_audio:
+    path:     /audio
+    defaults: { _controller: FrontendContentBundle:Default:audio }
+
+play_course_by_id:
+    path: /play/{id}
+    defaults: { _controller: FrontendContentBundle:Course:play }
+    requirements:
+        id: \d+
+
+display_posts_by_category:
+    path: /category/{category_id}
+    defaults: { _controller: FrontendContentBundle:Post:index }
+    requirements:
+        category_id: \d+
+
+display_post_by_id:
+    path: /post/{post_id}
+    defaults: { _controller: FrontendContentBundle:Post:display }
+
+display_all_courses_category:
+    path: /course_category
+    defaults: { _controller: FrontendContentBundle:Course:list }
+
+display_courses_by_category:
+    path: /courses/{category_id}
+    defaults: { _controller: FrontendContentBundle:Course:index }
+
+display_course_by_id:
+    path: /course/{course_id}
+    defaults: { _controller: FrontendContentBundle:Course:display }
+
+find_comment_by_id:
+    path: /get_comment/{id}.xml
+    defaults: { _controller: FrontendContentBundle:Comment:get }
+
+add_comment_by_id:
+    path: /add_comment
+    defaults: { _controller: FrontendContentBundle:Comment:add }

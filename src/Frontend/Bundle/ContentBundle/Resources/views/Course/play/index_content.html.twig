@@ -1,0 +1,107 @@
+<h4>{{ play.title }}</h4>
+
+<div id="player1" class="ABP-Unit" style="width:100%;height:640px;" tabindex="1">
+    <div class="ABP-Video">
+        <div class="ABP-Container"></div>
+        <video id="abp-video" autobuffer="true" data-setup="{}">
+            <source src="{{ course.videoPath ~ play.mp4File }}" type="video/mp4">
+            <p>Your browser does not support html5 video!</p>
+        </video>
+
+    </div>
+    <div class="ABP-Text">
+        <input type="text">
+    </div>
+    <div class="ABP-Control">
+        <div class="button ABP-Play"></div>
+        <div class="progress-bar">
+            <div class="bar dark"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="button ABP-CommentShow"></div>
+        <div class="button ABP-FullScreen"></div>
+    </div>
+</div>
+
+
+<div class="tabbable">
+    <!-- Tabs -->
+    <ul class="nav nav-tabs product-details-nav">
+        <li class="active"><a href="#tab1" data-toggle="tab">相关信息</a></li>
+    </ul>
+    <!-- Tab Content (Full Description) -->
+    <div class="tab-content product-detail-info">
+
+        <div class="tab-pane active" id="tab1">
+            <table>
+                <tbody>
+                {% for page in course.play if page.isEnabled %}
+                    <tr>
+                        <td>
+                            <h4>
+
+                            <img src="{{ asset( page.image | imagine_filter('normal') ) }}" style="margin-right: 10px;" />
+                            {{ page.title }}
+
+                            <br/><small>{{ page.content | striptags }}</small>
+
+                            </h4>
+                            {% if page.mp4File %}
+
+                                <a class="pull-right" href="{{ url('play_course_by_id' , {'id':page.id} ) }}">点击学习课程</a>
+
+                            {% endif %}
+
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    window.addEventListener("load",function(){
+
+        var inst = ABP.bind(document.getElementById("player1"), isMobile());
+        CommentLoader("{{ url('find_comment_by_id' , {'id':play.id}) }}", inst.cmManager);
+        inst.txtText.focus();
+
+        var cmManager = inst.cmManager;
+
+        inst.txtText.addEventListener("keydown", function(e){
+            if(e && e.keyCode === 13){
+
+                if(/^!/.test(this.value)) return; //Leave the internal commands
+
+                var obj = {};
+                obj.text = this.value;
+                obj.mode = 1;
+                obj.stime = '1.000';
+                obj.color = '#000000';
+
+                cmManager.send( obj);
+
+                $.ajax({
+                    type: "POST",
+                    url : "{{ url('add_comment_by_id' ) }}" ,
+                    data: { id: "{{ course.id }}", salt: "{{ salt }}" }
+                }) .done(function( msg ) {
+                    console.log( "Data Saved: " + msg );
+                });;
+
+                inst.txtText.value = "";
+
+            }
+        });
+        window.abpinst = inst;
+
+    });
+</script>
+
+<script src="{{ asset('ab/mobile.js') }}"></script>
+<script src="{{ asset('ab/CommentCoreLibrary.js') }}"></script>
+<script src="{{ asset('ab/libxml.js') }}"></script>
+<script src="{{ asset('ab/player.js') }}"></script>

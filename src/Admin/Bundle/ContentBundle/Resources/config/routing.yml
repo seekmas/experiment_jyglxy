@@ -1,0 +1,83 @@
+admin_home:
+    path: /
+    defaults: { _controller: AdminContentBundle:Default:index }
+
+admin_category_add:
+    path: /category
+    defaults: { _controller: AdminContentBundle:Category:index }
+
+admin_category_edit:
+    path: /category_edit/{id}
+    defaults: { _controller: AdminContentBundle:Category:edit }
+
+admin_category_list:
+    path: /category_list
+    defaults: { _controller: AdminContentBundle:Category:list }
+
+admin_post_add:
+    path: /post_add
+    defaults: { _controller: AdminContentBundle:Post:index }
+
+admin_post_edit:
+    path: /post_edit/{id}
+    defaults: { _controller: AdminContentBundle:Post:edit }
+
+admin_post_list:
+    path: /post_list
+    defaults: { _controller: AdminContentBundle:Post:list }
+
+admin_course_add:
+    path: /course_add
+    defaults: { _controller: AdminContentBundle:Course:index }
+
+admin_course_edit:
+    path: /course_edit/{id}
+    defaults: { _controller: AdminContentBundle:Course:edit }
+
+admin_course_play_add:
+    path: /course_play_add
+    defaults: { _controller: AdminContentBundle:Course:play }
+
+admin_course_play_list:
+    path: /course_play_list
+    defaults: { _controller: AdminContentBundle:Course:playList }
+
+admin_course_play_edit:
+    path: /course_play_edit/{id}
+    defaults: { _controller: AdminContentBundle:Course:playEdit }
+
+admin_course_list:
+    path: /course_list
+    defaults: { _controller: AdminContentBundle:Course:list }
+
+admin_course_category_add:
+    path: /course_category_add
+    defaults: { _controller: AdminContentBundle:Course:category }
+
+admin_course_category_edit:
+    path: /course_category_edit/{id}
+    defaults: { _controller: AdminContentBundle:Course:editCategory }
+
+admin_course_category:
+    path: /course_category
+    defaults: { _controller: AdminContentBundle:Course:categoryList }
+
+streamd_output:
+    path: /stream.wav
+    defaults: { _controller: AdminContentBundle:Course:stream }
+
+community_type_add:
+    path: /community_type_add
+    defaults: { _controller: AdminContentBundle:Community:type }
+
+community_group_add:
+    path: /community_grou_add
+    defaults: { _controller: AdminContentBundle:Community:group }
+
+community_group_list:
+    path: /community_group_list
+    defaults: { _controller: AdminContentBundle:Community:groupList }
+
+community_group_edit:
+    path: /{id}/community_grou_edit
+    defaults: { _controller: AdminContentBundle:Community:group }

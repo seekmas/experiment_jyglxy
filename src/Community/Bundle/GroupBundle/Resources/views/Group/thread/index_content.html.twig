@@ -1,0 +1,102 @@
+
+<div class="col-md-12">
+    <div class="panel">
+        <div class="panel-body" style="padding: 0px">
+
+            <p class="text-center">
+            {% if thread.image %}
+            <img src="{{ asset(  thread.image) | imagine_filter('banner') }}" style="height: 200px"/>
+            {% else %}
+            <img src="{{ asset( thread.group.image) | imagine_filter('banner') }}" style="width: 100%;height: 200px"/>
+            {% endif %}
+            </p>
+
+            {{ render_esi( controller('CommunityElementBundle:Mega:user' , { 'menu_title' : '返回到 '~thread.group.title , 'route' : 'visit_group_by_id' , 'id' : thread.group.id } )) }}
+
+        </div>
+    </div>
+
+</div>
+
+<div class="col-md-2">
+
+</div>
+
+<div class="col-md-8">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a class="avatar" href="{{ url('community_member_home' , {'id':thread.user.id}) }}">
+                <img src="{{ thread.user.member.image | imagine_filter('avatar') }}" />
+                <span>{{ thread.user.member.nickname }}</span>
+            </a>
+
+            <div class="pull-right">
+                <a href="#">回复数: {{ thread.replyNum }}</a>
+            </div>
+
+        </div>
+
+        <div class="panel-body">
+            <div class="readmore">{{ thread.content | raw }}</div>
+        </div>
+    </div>
+
+
+
+    <div class="panel">
+        <div class="panel-body">
+            {{ form( form) }}
+        </div>
+    </div>
+
+
+    {% for key , reply in replies %}
+        <div class="panel">
+            <div class="panel-heading">
+                第{{ page }}页 {{ key+1 }}楼
+            </div>
+
+            {% if reply.image %}
+            <p class="text-center">  <img src="{{ reply.image }}" /></p>
+            {% endif %}
+            <div class="panel-body">
+                {% if thread.isRoleUser == true and is_granted('ROLE_USER') %}
+                    <div class="panel-body">
+                        <div class="readmore">{{ reply.content | raw }}</div>
+                    </div>
+                {% elseif thread.isRoleUser == false %}
+
+                    <div class="panel-body">
+                        <div class="readmore">{{ reply.content | raw }}</div>
+                    </div>
+
+                {% else %}
+                    <div class="panel-body">
+                        <div class="alert alert-error">对不起.你是游客,要看到完整内容,需要先 <a href="{{ url('fos_user_security_login') }}">登录</a> 或者 <a href="{{ url('fos_user_registration_register') }}">注册</a> </div>
+                    </div>
+                {% endif %}
+
+            </div>
+
+            <div class="panel-footer">
+
+                <a class="avatar" href="{{ url('community_member_home' , {'id':reply.user.id}) }}">
+                    <img src="{{ reply.user.member.image | imagine_filter('avatar') }}" />
+                    <span>{{ reply.user.member.nickname }}</span>
+                </a>
+            </div>
+
+        </div>
+
+    {% endfor %}
+
+    {{ knp_pagination_render(replies) }}
+
+</div>
+
+<div class="col-md-2">
+
+</div>
+
+

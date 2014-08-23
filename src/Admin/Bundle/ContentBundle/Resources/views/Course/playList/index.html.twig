@@ -1,0 +1,22 @@
+{% extends "AdminContentBundle::layouts.html.twig" %}
+
+{% block breadcrumb %}
+    <i class="icon-dashboard"></i> 课程清单
+{% endblock %}
+
+
+{% block buttons %}
+    <ul class="inline sparkline-box">
+        <li class="sparkline-row">
+            <a class="btn btn-success" href="{{ url('admin_course_play_add') }}">添加课程视频</a>
+        </li>
+    </ul>
+{% endblock %}
+
+
+
+{% block body %}
+
+    {% include "AdminContentBundle:Course:playList/index_content.html.twig" %}
+
+{% endblock %}

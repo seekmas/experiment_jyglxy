@@ -1,0 +1,3 @@
+code_code_self_homepage:
+    path:     /code_self
+    defaults: { _controller: CodeCodeSelfBundle:Default:index }

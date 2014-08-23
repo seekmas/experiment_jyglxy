@@ -1,0 +1,18 @@
+{% extends "CommunityGroupBundle::layouts.html.twig" %}
+
+{% block title %}
+
+    讨论: {{ thread.content | striptags | truncate(20) }}
+
+{% endblock %}
+
+{% block body %}
+
+
+    <div class="container">
+        <div class="row">
+            {% include 'CommunityGroupBundle:Group:thread/index_content.html.twig' %}
+        </div>
+    </div>
+
+{% endblock %}

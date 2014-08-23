@@ -1,0 +1,18 @@
+{% extends "AdminContentBundle::layouts.html.twig" %}
+
+{% block breadcrumb %}
+    <i class="icon-dashboard"></i> 新闻内容
+{% endblock %}
+
+{% block buttons %}
+    <ul class="inline sparkline-box">
+        <li class="sparkline-row">
+            <a class="btn btn-success" href="{{ url('admin_post_list') }}">返回列表</a>
+        </li>
+    </ul>
+{% endblock %}
+
+
+{% block body %}
+    {% include "AdminContentBundle:Post:edit/index_content.html.twig" %}
+{% endblock %}

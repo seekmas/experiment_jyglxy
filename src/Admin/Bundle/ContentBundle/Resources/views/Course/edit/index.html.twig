@@ -1,0 +1,13 @@
+{% extends "AdminContentBundle::layouts.html.twig" %}
+
+{% block breadcrumb %}
+    <i class="icon-dashboard"></i> 添加课程
+{% endblock %}
+
+{% block body %}
+
+        <img src="{{ asset(tmp_image) }}" style="width: 300px" />
+        {% include "AdminContentBundle:Course:index/index_content.html.twig" %}
+
+
+{% endblock %}

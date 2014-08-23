@@ -1,0 +1,13 @@
+parameters:
+#    frontend_content.example.class: Frontend\Bundle\ContentBundle\Example
+
+services:
+    course.global:
+        class: Frontend\Bundle\ContentBundle\Extensions\GlobalService
+        arguments: [@service_container]
+
+    extension.global_variables:
+        class: Frontend\Bundle\ContentBundle\TwigExtensions\TwigVariables
+        arguments: [@service_container]
+        tags:
+            - { name: twig.extension }

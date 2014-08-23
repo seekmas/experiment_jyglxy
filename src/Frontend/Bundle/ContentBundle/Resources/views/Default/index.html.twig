@@ -1,0 +1,148 @@
+{% extends "FrontendContentBundle::layouts.html.twig" %}
+{% block body %}
+    <!-- Homepage Slider -->
+    <div class="homepage-slider">
+        <div id="sequence">
+            <ul class="sequence-canvas">
+                <!-- Slide 1 -->
+                <li class="bg4">
+                    <!-- Slide Title -->
+                    <h2 class="title">精益管理学院</h2>
+                    <!-- Slide Text -->
+                    <h3 class="subtitle">
+                        <ul>
+                            <li style="padding: 5px;">拥有来自全球的精益专家</li>
+                            <li style="padding: 5px;">将精益管理融入企业整体运营</li>
+                            <li style="padding: 5px;">全系统精益运营管理本土化、绩效化</li>
+                            <li style="padding: 5px;">帮助企业“降低运营成本，创造利润空间”</li>
+                        </ul>
+
+                    </h3>
+                    <!-- Slide Image -->
+                    <img class="slide-img" src="{{ asset('theme/img/homepage-slider/slide3.png') }}" alt="Slide 1" />
+                </li>
+                <!-- End Slide 1 -->
+                <!-- Slide 2 -->
+                <li class="bg2">
+                    <!-- Slide Title -->
+                    <h2 class="title">精益人力资源经营与管理特训营</h2>
+                    <!-- Slide Text -->
+                    <h3 class="subtitle">
+                        <ul>
+                            <li style="padding: 5px;">
+                                精益管理学院国内首次提出精益人力资源精益的概念
+                            </li>
+                            <li style="padding: 5px;">
+                                精益人力资源经营系统性的解决公司人才培养，育成的一体化解决方案
+                            </li>
+                        </ul>
+                    </h3>
+                    <!-- Slide Image -->
+                    <img class="slide-img" src="{{ asset('theme/img/homepage-slider/slide1.png') }}" alt="Slide 2" />
+                </li>
+                <!-- End Slide 2 -->
+                <!-- Slide 3 -->
+                <li class="bg1">
+                    <!-- Slide Title -->
+                    <h2 class="title">全系统精益运营管理解决方案</h2>
+                    <!-- Slide Text -->
+                    <h3 class="subtitle">
+                        <ul>
+                            <li style="padding: 5px;">
+                                国内领先的精益运营管理解决方案
+                            </li>
+                            <li style="padding: 5px;">
+                                运营系统涵盖公司各个职能部门的管理，系统性的解决公司的运营问题
+                            </li>
+                            <li style="padding: 5px;">
+                                提供上百种行业定制化的运营管理解决方案
+                            </li>
+                        </ul>
+                    </h3>
+                    <!-- Slide Image -->
+                    <img class="slide-img" src="{{ asset('theme/img/homepage-slider/slide2.png') }}" alt="Slide 3" />
+                </li>
+                <!-- End Slide 3 -->
+            </ul>
+            <div class="sequence-pagination-wrapper">
+                <ul class="sequence-pagination">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- End Homepage Slider -->
+
+    <!-- Press Coverage -->
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="in-press press-wired">
+                        <a>精益管理学院的系统是目前国内涵盖职能和行业最全面的精益运营系统。同时包含完整的精益绩效评估体系。使得效果显而易见。</a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="in-press press-mashable">
+                        <a>不仅有完整的精益培训，公开课和咨询，  还有线上课程，电台和精益评估工具。使绩效看得见，这是国内唯一的一家O2O的精益管理机构。</a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="in-press press-techcrunch">
+                        <a>这里的服务不再是单向的教授，完整的线上互动平台有更多的互动机会，能保证持续为客户进行服务。也希望有更多学员能在这里交流。</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Press Coverage -->
+
+    <!-- Services -->
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="service-wrapper">
+                        <img src="{{ asset('theme/img/service-icon/diamond.png') }}" alt="Service 1">
+                        <h3>精益培训咨询服务</h3>
+                        <p>精益管理学院拥有来自全球的资深精益专家，专家具有15年以上精益从业经验，为用户提供符合组织要求的全系统精益运营管理培训咨询服务，让精益在企业中落地并能有效实行</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="service-wrapper">
+                        <img src="{{ asset('theme/img/service-icon/ruler.png') }}" alt="Service 2">
+                        <h3>精益云信息平台</h3>
+                        <p>精益云学院为学员提供互联网学习平台，高清精益视频课程，精益电台，精益在线工具及精益社区为学员提供一个全方位精益管理服务<br/><br/></p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="service-wrapper">
+                        <img src="{{ asset('theme/img/service-icon/box.png') }}" alt="Service 3">
+                        <h3>企业级信息系统</h3>
+                        <p>帮助企业更好的进行信息化转变，我们在提供咨询服务和MES生产制造系统，ERP管理系统，CRM客户管理以及OA办公自动化系统，整合的信息化解决方案</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Services -->
+
+    <!-- Call to Action Bar -->
+    <div class="section section-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="calltoaction-wrapper">
+                        <h3>精益管理学院 – 领先精益运营系统解决方案提供商</h3><br>
+                        <h3>精益运营系统+精益云信息平台+企业级信息系统</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Call to Action Bar -->
+
+
+{% endblock %}

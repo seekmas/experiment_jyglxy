@@ -1,0 +1,54 @@
+parameters:
+
+
+services:
+
+
+    extension.function_string:
+        class: Community\Bundle\GroupBundle\FunctionExtension\StrExtension
+
+    twig.extension.text:
+       class: Twig_Extensions_Extension_Text
+       tags:
+           - { name: twig.extension }
+
+    twig.extension.string:
+        class: Community\Bundle\GroupBundle\TwigExtension\StringExtension
+        tags:
+            - { name: twig.extension}
+
+    eventlistener.on_reply_success:
+        class: Community\Bundle\GroupBundle\EventListener\ReplyThreadListener
+        tags:
+            - { name: kernel.event_listener , event: community.reply_post_finished , method: onReplySuccess }
+
+
+    community_category.repository:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Community\Bundle\GroupBundle\Entity\Category ]
+
+    community_group.repository:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Community\Bundle\GroupBundle\Entity\Group ]
+
+    community_thread.repository:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Community\Bundle\GroupBundle\Entity\Thread ]
+
+    community_reply_thread.repository:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Community\Bundle\GroupBundle\Entity\ReplyThread ]
+
+    member.repository:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Community\Bundle\GroupBundle\Entity\Member ]

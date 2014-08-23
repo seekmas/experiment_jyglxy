@@ -1,0 +1,54 @@
+<div class="col-md-12">
+    <div class="panel">
+        <div class="panel-body">
+        {{ render_esi( controller('CommunityElementBundle:Mega:user' , { 'menu_title' : '社区' , 'route' : 'community_group_homepage'} )) }}
+        </div>
+    </div>
+</div>
+
+<div class="col-md-2">
+    <div class="panel">
+        <div class="panel-body">
+
+            <img src="{{ user.getMember.image | imagine_filter('normal') }}">
+
+            <h3>{{ user.getMember.nickname }}</h3>
+            <p>主题: {{ thread | length }}</p>
+            <p>回复: {{ reply | length }}</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-md-6">
+
+    <h3>近期发布的讨论</h3>
+
+
+
+    {% for thread in threads %}
+    <div class="panel">
+
+        {% if thread.image %}
+        <p class="text-center">
+            <img src="{{ thread.image | imagine_filter('600x150') }}" />
+        </p>
+        {% endif %}
+        <div class="panel-body">
+            {{ thread.content | raw }}
+        </div>
+
+        <div class="panel-footer">
+
+            <a href="{{ url('join_thread_by_id' , {'id' : thread.id} ) }}">原帖地址</a> |
+            来自 <a href="{{ url('visit_group_by_id' , {'id' : thread.group.id} ) }}">{{ thread.group.title }}</a> |
+            发布时间: {{ thread.createdAt | date('Y/m/d') }}
+
+        </div>
+
+    </div>
+    {% endfor %}
+
+    {{ knp_pagination_render(threads) }}
+
+</div>

@@ -1,0 +1,107 @@
+{% extends "FrontendContentBundle::layouts.html.twig" %}
+
+{% block keywords %}
+    {{ post.keywords | trim }}
+{% endblock %}
+
+{% block description %}
+    {{ post.description | trim }}
+{% endblock %}
+
+
+{% block body %}
+
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <!-- Blog Post -->
+                <div class="col-sm-8">
+                    <div class="blog-post blog-single-post">
+
+                        {% include "FrontendContentBundle:Post:display/index_content.html.twig" %}
+
+                        <!-- Comments -->
+                        <div class="post-coments">
+                            <!-- Comments Form -->
+                            <h4>路过留名</h4>
+                            <div class="comment-form-wrapper">
+
+                                {{ form( form) }}
+
+                            </div>
+                            <!-- End Comment Form -->
+
+                            <h4>评论 ({{ comments | length }})</h4>
+                            <ul class="post-comments">
+
+                                {% for comment in comments %}
+                                <li>
+                                    <div class="comment-wrapper">
+                                        <div class="comment-author">{{ comment.user.username }}</div>
+                                        <p>
+                                            {{ comment.content }}
+                                        </p>
+                                        <!-- Comment Controls -->
+                                        <div class="comment-actions">
+                                            <span class="comment-date">{{ comment.createdAt | date('Y年m月d日 H:i:s') }}</span>
+                                            <a href="#" data-toggle="tooltip" data-original-title="Vote Up" class="show-tooltip"><i class="glyphicon glyphicon-thumbs-up"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-original-title="Vote Down" class="show-tooltip"><i class="glyphicon glyphicon-thumbs-down"></i></a>
+                                            <span class="label label-success">+8</span>
+                                            <a href="#" class="btn btn-micro btn-grey comment-reply-btn"><i class="glyphicon glyphicon-share-alt"></i> Reply</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            <!-- Pagination -->
+                            <div class="pagination-wrapper ">
+                                {{ knp_pagination_render(comments) }}
+                            </div>
+
+                        </div>
+                        <!-- End Comments -->
+                    </div>
+                </div>
+                <!-- End Blog Post -->
+                <!-- Sidebar -->
+                <div class="col-sm-4 blog-sidebar">
+                    <h4>Search our Blog</h4>
+                    <form>
+                        <div class="input-group">
+                            <input class="form-control input-md" id="appendedInputButtons" type="text">
+								<span class="input-group-btn">
+									<button class="btn btn-md" type="button">Search</button>
+								</span>
+                        </div>
+                    </form>
+                    <h4>Recent Posts</h4>
+                    <ul class="recent-posts">
+                        <li><a href="#">Lorem ipsum dolor sit amet</a></li>
+                        <li><a href="#">Sed sit amet metus sit</a></li>
+                        <li><a href="#">Nunc et diam volutpat tellus ultrices</a></li>
+                        <li><a href="#">Quisque sollicitudin cursus felis</a></li>
+                    </ul>
+                    <h4>Categories</h4>
+                    <ul class="blog-categories">
+                        <li><a href="#">Lorem ipsum</a></li>
+                        <li><a href="#">Sed sit amet metus</a></li>
+                        <li><a href="#">Nunc et diam </a></li>
+                        <li><a href="#">Quisque</a></li>
+                    </ul>
+                    <h4>Archive</h4>
+                    <ul>
+                        <li><a href="#">January 2013</a></li>
+                        <li><a href="#">February 2013</a></li>
+                        <li><a href="#">March 2013</a></li>
+                        <li><a href="#">April 2013</a></li>
+                        <li><a href="#">May 2013</a></li>
+                    </ul>
+                </div>
+                <!-- End Sidebar -->
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

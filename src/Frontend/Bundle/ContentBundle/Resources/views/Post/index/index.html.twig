@@ -1,0 +1,27 @@
+{% extends "FrontendContentBundle::layouts.html.twig" %}
+
+{% block keywords %}
+    {{ category.keywords | trim }}
+{% endblock %}
+
+{% block description %}
+    {{ category.description | trim }}
+{% endblock %}
+
+
+
+{% block body %}
+
+    <div class="section section-breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>资讯列表</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include "FrontendContentBundle:Post:index/index_content.html.twig" %}
+
+
+{% endblock %}
