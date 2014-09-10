@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c0268c6c569529faaf16477e0712a4e2",
+    "hash": "7164d59a2f740ec6f299d9244ab7ce54",
     "packages": [
         {
             "name": "braincrafted/bootstrap-bundle",
@@ -692,17 +692,17 @@
         },
         {
             "name": "doctrine/phpcr-bundle",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "target-dir": "Doctrine/Bundle/PHPCRBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrinePHPCRBundle.git",
-                "reference": "434f37b873462fdeb81a373be6aac0b612f6421d"
+                "reference": "0d3e339f8dac901c226433391dfb798953078214"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrinePHPCRBundle/zipball/434f37b873462fdeb81a373be6aac0b612f6421d",
-                "reference": "434f37b873462fdeb81a373be6aac0b612f6421d",
+                "url": "https://api.github.com/repos/doctrine/DoctrinePHPCRBundle/zipball/0d3e339f8dac901c226433391dfb798953078214",
+                "reference": "0d3e339f8dac901c226433391dfb798953078214",
                 "shasum": ""
             },
             "require": {
@@ -760,7 +760,7 @@
                 "persistence",
                 "phpcr"
             ],
-            "time": "2014-08-13 17:08:37"
+            "time": "2014-08-19 20:09:50"
         },
         {
             "name": "doctrine/phpcr-odm",
@@ -837,18 +837,125 @@
             "time": "2014-06-19 14:44:37"
         },
         {
+            "name": "egeloen/ckeditor-bundle",
+            "version": "2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/egeloen/IvoryCKEditorBundle.git",
+                "reference": "de3d2e0170ed4c73035887ef4f1fcea4884aa36b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/egeloen/IvoryCKEditorBundle/zipball/de3d2e0170ed4c73035887ef4f1fcea4884aa36b",
+                "reference": "de3d2e0170ed4c73035887ef4f1fcea4884aa36b",
+                "shasum": ""
+            },
+            "require": {
+                "egeloen/json-builder": "~1.0",
+                "php": ">=5.3.3",
+                "symfony/form": "~2.1",
+                "symfony/framework-bundle": "~2.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "satooshi/php-coveralls": "~0.6",
+                "twig/twig": "~1.12"
+            },
+            "suggest": {
+                "twig/twig": "Allows to use twig templates"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ivory\\CKEditorBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eric GELOEN",
+                    "email": "geloen.eric@gmail.com"
+                }
+            ],
+            "description": "Provides a CKEditor integration for your Symfony2 Project.",
+            "keywords": [
+                "CKEditor"
+            ],
+            "time": "2014-07-15 15:45:25"
+        },
+        {
+            "name": "egeloen/json-builder",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/egeloen/ivory-json-builder.git",
+                "reference": "0395f06db7bbb3c240667ab5f3152151051fb567"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/egeloen/ivory-json-builder/zipball/0395f06db7bbb3c240667ab5f3152151051fb567",
+                "reference": "0395f06db7bbb3c240667ab5f3152151051fb567",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=5.3.0",
+                "symfony/property-access": "~2.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "satooshi/php-coveralls": "~0.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ivory\\JsonBuilder\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eric GELOEN",
+                    "email": "geloen.eric@gmail.com"
+                }
+            ],
+            "description": "JSON builder with escaping control for PHP 5.3+",
+            "keywords": [
+                "Escape",
+                "builder",
+                "json"
+            ],
+            "time": "2014-08-12 00:30:56"
+        },
+        {
             "name": "friendsofsymfony/user-bundle",
             "version": "dev-master",
             "target-dir": "FOS/UserBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "27a84cec3ea4daa32cd6fe308c0847ca9644f588"
+                "reference": "094bea6f318fbb067db3ddf6d26a62af0bf13442"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/27a84cec3ea4daa32cd6fe308c0847ca9644f588",
-                "reference": "27a84cec3ea4daa32cd6fe308c0847ca9644f588",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/094bea6f318fbb067db3ddf6d26a62af0bf13442",
+                "reference": "094bea6f318fbb067db3ddf6d26a62af0bf13442",
                 "shasum": ""
             },
             "require": {
@@ -902,7 +1009,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2014-08-04 23:04:17"
+            "time": "2014-08-23 11:32:38"
         },
         {
             "name": "imagine/imagine",
@@ -1840,23 +1947,23 @@
         },
         {
             "name": "raulfraile/ladybug",
-            "version": "v1.0.9",
+            "version": "v1.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/raulfraile/ladybug.git",
-                "reference": "787092f945a8e1e59ae0bd3135c0d372a9e7ea1b"
+                "reference": "1fb36821c3e91bd9a030335df452b264811449bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/raulfraile/ladybug/zipball/787092f945a8e1e59ae0bd3135c0d372a9e7ea1b",
-                "reference": "787092f945a8e1e59ae0bd3135c0d372a9e7ea1b",
+                "url": "https://api.github.com/repos/raulfraile/ladybug/zipball/1fb36821c3e91bd9a030335df452b264811449bf",
+                "reference": "1fb36821c3e91bd9a030335df452b264811449bf",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.9",
                 "ptachoire/cssembed": "v1.0.2",
                 "raulfraile/ladybug-plugin-extra": "~1.0.0",
-                "raulfraile/ladybug-theme-modern": "~1.0.0",
+                "raulfraile/ladybug-theme-modern": ">=1.0.7,<2.0",
                 "symfony/config": ">=2.0",
                 "symfony/console": ">=2.0",
                 "symfony/dependency-injection": ">=2.0",
@@ -1864,10 +1971,10 @@
                 "twig/twig": ">=1.7.0"
             },
             "require-dev": {
-                "fabpot/php-cs-fixer": "0.2.0",
                 "jms/serializer": ">=0.11.0",
                 "mockery/mockery": "0.9.1",
                 "phpdocumentor/reflection-docblock": "2.0.0",
+                "phpunit/phpunit": "~4.0",
                 "symfony/dom-crawler": ">=2.0.4"
             },
             "suggest": {
@@ -1910,7 +2017,7 @@
                 "print_r",
                 "var_dump"
             ],
-            "time": "2014-08-20 09:48:05"
+            "time": "2014-08-23 19:43:25"
         },
         {
             "name": "raulfraile/ladybug-bundle",
@@ -2098,16 +2205,16 @@
         },
         {
             "name": "raulfraile/ladybug-theme-modern",
-            "version": "v1.0.6",
+            "version": "v1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/raulfraile/ladybug-theme-modern.git",
-                "reference": "528c9114ca1a82860e8b7025d1fe4f64dc728b72"
+                "reference": "0271ed62bc45397be9e346c9c19a0ae0d811ef8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/raulfraile/ladybug-theme-modern/zipball/528c9114ca1a82860e8b7025d1fe4f64dc728b72",
-                "reference": "528c9114ca1a82860e8b7025d1fe4f64dc728b72",
+                "url": "https://api.github.com/repos/raulfraile/ladybug-theme-modern/zipball/0271ed62bc45397be9e346c9c19a0ae0d811ef8e",
+                "reference": "0271ed62bc45397be9e346c9c19a0ae0d811ef8e",
                 "shasum": ""
             },
             "require": {
@@ -2129,7 +2236,7 @@
                 "theme",
                 "var_dump"
             ],
-            "time": "2013-10-07 21:55:38"
+            "time": "2014-08-21 08:27:46"
         },
         {
             "name": "sensio/distribution-bundle",
@@ -2405,22 +2512,20 @@
         },
         {
             "name": "symfony/icu",
-            "version": "v1.1.2",
+            "version": "v1.0.1",
             "target-dir": "Symfony/Component/Icu",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "229730a14ccac63bb3c5d9f0494fcd27140c0dd3"
+                "reference": "fdba214b1e087c149843bde976263c53ac10c975"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/229730a14ccac63bb3c5d9f0494fcd27140c0dd3",
-                "reference": "229730a14ccac63bb3c5d9f0494fcd27140c0dd3",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/fdba214b1e087c149843bde976263c53ac10c975",
+                "reference": "fdba214b1e087c149843bde976263c53ac10c975",
                 "shasum": ""
             },
             "require": {
-                "ext-intl": "*",
-                "lib-icu": ">=3.8",
                 "php": ">=5.3.3",
                 "symfony/intl": "~2.3"
             },
@@ -2450,7 +2555,7 @@
                 "icu",
                 "intl"
             ],
-            "time": "2014-07-25 10:00:11"
+            "time": "2013-10-04 09:12:07"
         },
         {
             "name": "symfony/monolog-bundle",

@@ -4,9 +4,7 @@
         <div class="panel-body" style="padding: 0px">
 
             <p class="text-center">
-            {% if thread.image %}
-            <img src="{{ asset(  thread.image) | imagine_filter('banner') }}" style="height: 200px"/>
-            {% else %}
+            {% if thread.group.image %}
             <img src="{{ asset( thread.group.image) | imagine_filter('banner') }}" style="width: 100%;height: 200px"/>
             {% endif %}
             </p>
@@ -38,6 +36,14 @@
         </div>
 
         <div class="panel-body">
+            <p class="text-center">
+                {% if thread.image %}
+                    <img src="{{ asset(  thread.image) }}" style="height: 200px"/>
+                {% else %}
+                    <img src="{{ asset( thread.group.image) | imagine_filter('banner') }}" style="width: 100%;height: 200px"/>
+                {% endif %}
+            </p>
+
             <div class="readmore">{{ thread.content | raw }}</div>
         </div>
     </div>

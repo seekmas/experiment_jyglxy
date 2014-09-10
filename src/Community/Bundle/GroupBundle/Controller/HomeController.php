@@ -10,12 +10,14 @@ class HomeController extends Controller
     public function indexAction(Request $request , $id)
     {
 
+
+
         $user = $this->get('user.repository')->find( $id);
 
         if( $user->getMember() == NULL )
         {
 
-            $request->getSession()->getFlashBag()->add('denger' , '请先完善资料');
+            $request->getSession()->getFlashBag()->add('danger' , '请先完善资料');
 
             return $this->redirect( $this->generateUrl( 'community_member') );
         }

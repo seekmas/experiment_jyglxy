@@ -1,6 +1,10 @@
 parameters:
 
 services:
+    security.password_encoder:
+        class: Admin\Bundle\ContentBundle\Security\Encoder\PasswordEncoder
+        arguments: [6]
+
     file.save_file_handler:
         class: Admin\Bundle\ContentBundle\File\SaveFileHandler
         arguments: [@service_container]
